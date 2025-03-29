@@ -26,6 +26,17 @@ public class Option {
 	@JoinColumn(name = "notification_id", nullable = false)
 	private Notification notification;
 
+	public Option() {
+		super();
+	}
+
+	public Option(String title, String link, Notification notification) {
+		super();
+		this.title = title;
+		this.link = link;
+		this.notification = notification;
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -15,5 +15,6 @@
 		<module>notification-model</module>
 		<module>notification-repository</module>
 		<module>notification-service</module>
+		<module>notification-web</module>
 	</modules>
 </project>

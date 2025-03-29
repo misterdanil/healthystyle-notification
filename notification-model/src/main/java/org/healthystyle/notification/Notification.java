@@ -3,6 +3,8 @@ package org.healthystyle.notification;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.healthystyle.notification.status.Status;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -32,6 +36,22 @@ public class Notification {
 	private Long toUserId;
 	@OneToMany(mappedBy = "notification", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Option> options;
+	@ManyToOne
+	@JoinColumn(name = "status_id", nullable = false)
+	private Status status;
+
+	public Notification() {
+		super();
+	}
+
+	public Notification(String title, String type, Long fromUserId, Long toUserId, Status status) {
+		super();
+		this.title = title;
+		this.type = type;
+		this.fromUserId = fromUserId;
+		this.toUserId = toUserId;
+		this.status = status;
+	}
 
 	public Long getId() {
 		return id;
