@@ -9,12 +9,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.3</version>
+		<version>3.4.2</version>
 	</parent>
 	<modules>
 		<module>notification-model</module>
 		<module>notification-repository</module>
 		<module>notification-service</module>
 		<module>notification-web</module>
+		<module>notification-app</module>
 	</modules>
 </project>

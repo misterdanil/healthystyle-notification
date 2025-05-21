@@ -1,5 +1,6 @@
 package org.healthystyle.notification;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class Notification {
 	private String title;
 	@Column(nullable = false)
 	private String type;
-	@Column(nullable = false)
+	@Column
 	private Long fromUserId;
 	@Column(nullable = false)
 	private Long toUserId;
@@ -39,18 +40,23 @@ public class Notification {
 	@ManyToOne
 	@JoinColumn(name = "status_id", nullable = false)
 	private Status status;
+	@Column(nullable = false, unique = true)
+	private String identifier;
+	@Column(nullable = false)
+	private Instant createdOn = Instant.now();
 
 	public Notification() {
 		super();
 	}
 
-	public Notification(String title, String type, Long fromUserId, Long toUserId, Status status) {
+	public Notification(String title, String type, Long fromUserId, Long toUserId, Status status, String identifier) {
 		super();
 		this.title = title;
 		this.type = type;
 		this.fromUserId = fromUserId;
 		this.toUserId = toUserId;
 		this.status = status;
+		this.identifier = identifier;
 	}
 
 	public Long getId() {
@@ -86,6 +92,22 @@ public class Notification {
 
 	public void addOption(Option option) {
 		getOptions().add(option);
+	}
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public Instant getCreatedOn() {
+		return createdOn;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 }

@@ -17,7 +17,7 @@ import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 
-@Service
+//@Service
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository repository;

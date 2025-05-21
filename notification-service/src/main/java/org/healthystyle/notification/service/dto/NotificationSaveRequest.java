@@ -11,12 +11,14 @@ public class NotificationSaveRequest {
 	private String title;
 	@NotBlank(message = "Укажите тип уведомления")
 	private String type;
-	@NotNull(message = "Укажите пользователя-источника уведомления")
+//	@NotNull(message = "Укажите пользователя-источника уведомления")
 	private Long fromUserId;
 	@NotNull(message = "Укажите пользователя-цель уведомления")
 	private Long toUserId;
-	@NotEmpty(message = "Укажите опции")
+//	@NotEmpty(message = "Укажите опции")
 	private List<OptionSaveRequest> options;
+	@NotEmpty(message = "Укажите идентификатор")
+	private String identifier;
 
 	public String getTitle() {
 		return title;
@@ -56,6 +58,14 @@ public class NotificationSaveRequest {
 
 	public void setOptions(List<OptionSaveRequest> options) {
 		this.options = options;
+	}
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
 	}
 
 }

@@ -26,6 +26,10 @@ public class Status {
 	@Column(nullable = false)
 	private Instant createdOn = Instant.now();
 
+	public Status() {
+		super();
+	}
+
 	public Status(Type type) {
 		super();
 		this.type = type;
